@@ -1,24 +1,22 @@
 FROM kilna/liquibase
 LABEL maintainer="Kilna kilna@kilna.com"
 
-ARG mysql_jdbc_version=5.1.44
-ARG mysql_jdbc_download_url=https://dev.mysql.com/get/Downloads/Connector-J
+ARG mariadb_jdbc_version=2.1.1
+ARG mariadb_jdbc_download_url=https://downloads.mariadb.com/Connectors/java/connector-java-${mariadb_jdbc_version}
 
 ENV LIQUIBASE_PORT=${LIQUIBASE_PORT:-3306}\
-    LIQUIBASE_CLASSPATH=${LIQUIBASE_CLASSPATH:-/opt/jdbc/mysql-jdbc.jar}\
-    LIQUIBASE_DRIVER=${LIQUIBASE_DRIVER:-com.mysql.jdbc.Driver}\
-    LIQUIBASE_URL=${LIQUIBASE_URL:-'jdbc:mysql://${HOST}:${PORT}/${DATABASE}'}
+    LIQUIBASE_CLASSPATH=${LIQUIBASE_CLASSPATH:-/opt/jdbc/mariadb-jdbc.jar}\
+    LIQUIBASE_DRIVER=${LIQUIBASE_DRIVER:-org.mariadb.jdbc.Driver}\
+    LIQUIBASE_URL=${LIQUIBASE_URL:-'jdbc:mariadb://${HOST}:${PORT}/${DATABASE}'}
 
 COPY test/ /opt/test/
 RUN set -e -o pipefail;\
-    chmod +x /opt/test/run_test.sh;\
     cd /opt/jdbc;\
-    tarfile=mysql-connector-java-${mysql_jdbc_version}.tar.gz;\
-    curl -SOLs ${mysql_jdbc_download_url}/${tarfile};\
-    tar -x -f ${tarfile};\
-    jarfile=mysql-connector-java-${mysql_jdbc_version}-bin.jar;\
-    mv mysql-connector-java-${mysql_jdbc_version}/${jarfile} ./;\
-    rm -rf ${tarfile} mysql-connector-java-${mysql_jdbc_version};\
-    ln -s ${jarfile} mysql-jdbc.jar;\
+    chmod +x /opt/test/run_test.sh;\
+    jarfile=mariadb-java-client-${mariadb_jdbc_version}.jar;\
+    curl -SOLs ${mariadb_jdbc_download_url}/${jarfile};\
+    ls -lA;\
+    ln -s ${jarfile} mariadb-jdbc.jar;\
+    ls -lA;\
     set | grep -F LIQUIBASE_
 

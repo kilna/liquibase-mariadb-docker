@@ -1,6 +1,6 @@
-# liquibase-mysql-docker
+# liquibase-mariadb-docker
 
-Docker for applying Liquibase changes against MySQL databases
+Docker for applying Liquibase changes against MariaDB databases
 
 # Usage
 
