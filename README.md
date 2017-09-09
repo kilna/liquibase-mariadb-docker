@@ -5,7 +5,9 @@
 [![](https://img.shields.io/docker/stars/kilna/liquibase-mariadb.svg?style=plastic)](https://hub.docker.com/r/kilna/liquibase-mariadb/)
 [![](https://img.shields.io/badge/docker_build-automated-blue.svg?style=plastic)](https://cloud.docker.com/swarm/kilna/repository/docker/kilna/liquibase-mariadb/builds)
 
-**A lightweight Docker for running [Liquibase](https://www.liquibase.org) with [MariaDB](http://www.mariadb.org) databases** - DockerHub: [liquibase-mariadb](https://hub.docker.com/r/kilna/liquibase-mariadb/) - GitHub: [liquibase-mariadb-docker](https://github.com/kilna/liquibase-mariadb-docker)
+**A lightweight Docker for running [Liquibase](https://www.liquibase.org) with [MariaDB](http://www.mariadb.org) databases**
+
+DockerHub: [liquibase-mariadb](https://hub.docker.com/r/kilna/liquibase-mariadb/) - GitHub: [liquibase-mariadb-docker](https://github.com/kilna/liquibase-mariadb-docker)
 
 # Usage
 
