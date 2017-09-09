@@ -9,14 +9,11 @@ ENV LIQUIBASE_PORT=${LIQUIBASE_PORT:-3306}\
     LIQUIBASE_DRIVER=${LIQUIBASE_DRIVER:-org.mariadb.jdbc.Driver}\
     LIQUIBASE_URL=${LIQUIBASE_URL:-'jdbc:mariadb://${HOST}:${PORT}/${DATABASE}'}
 
-COPY test/ /opt/test/
+COPY test/ /opt/test_liquibase_mariadb/
 RUN set -e -o pipefail;\
     cd /opt/jdbc;\
-    chmod +x /opt/test/run_test.sh;\
+    chmod +x /opt/test_liquibase_mariadb/run_test.sh;\
     jarfile=mariadb-java-client-${mariadb_jdbc_version}.jar;\
     curl -SOLs ${mariadb_jdbc_download_url}/${jarfile};\
-    ls -lA;\
-    ln -s ${jarfile} mariadb-jdbc.jar;\
-    ls -lA;\
-    set | grep -F LIQUIBASE_
+    ln -s ${jarfile} mariadb-jdbc.jar;
 
