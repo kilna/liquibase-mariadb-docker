@@ -12,6 +12,7 @@ ENV LIQUIBASE_PORT=${LIQUIBASE_PORT:-3306}\
 
 COPY test/ /opt/test_liquibase_mariadb/
 RUN set -e -o pipefail;\
+    echo "JDBC DRIVER VERSION: $jdbc_driver_version";\
     cd /opt/jdbc;\
     chmod +x /opt/test_liquibase_mariadb/run_test.sh;\
     jarfile=mariadb-java-client-${jdbc_driver_version}.jar;\
