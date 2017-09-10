@@ -1,8 +1,14 @@
 version: '3'
 services:
   sut:
-    build: .
+    env_file:
+      - .env
+    build:
+      context: .
+      args:
+        jdbc_driver_version: ${jdbc_driver_version}
     command: /opt/test_liquibase_mariadb/run_test.sh
+    image: liquibase-mariadb:build
     depends_on:
       - db
   db:
