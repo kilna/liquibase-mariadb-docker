@@ -16,5 +16,6 @@ RUN set -x -e -o pipefail;\
     chmod +x /opt/test_liquibase_mariadb/run_test.sh;\
     jarfile=mariadb-java-client-${jdbc_driver_version}.jar;\
     curl -SOLs ${jdbc_driver_download_url}/${jarfile};\
+    [[ -e ${jarfile} ]] || exit 190;\
     ln -s ${jarfile} mariadb-jdbc.jar
 
