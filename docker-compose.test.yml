@@ -12,7 +12,7 @@ services:
     depends_on:
       - db
   db:
-    image: db
+    image: mariadb
     container_name: db
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
