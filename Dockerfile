@@ -2,7 +2,7 @@ FROM kilna/liquibase
 LABEL maintainer="Kilna kilna@kilna.com"
 
 ARG jdbc_driver_version
-ENV jdbc_driver_version=${jdbc_driver_version:-2.1.1}\
+ENV jdbc_driver_version=${jdbc_driver_version:-2.1.2}\
     jdbc_driver_download_url=https://downloads.mariadb.com/Connectors/java/connector-java-${jdbc_driver_version}\
     LIQUIBASE_PORT=${LIQUIBASE_PORT:-3306}\
     LIQUIBASE_CLASSPATH=${LIQUIBASE_CLASSPATH:-/opt/jdbc/mariadb-jdbc.jar}\
