@@ -16,7 +16,7 @@ DockerHub: [liquibase-mariadb](https://hub.docker.com/r/kilna/liquibase-mariadb/
 You can use this image by creating your own `Dockerfile` which inherits using a FROM line:
 
 ```
-FROM kilna/liquibase-mariadb-docker
+FROM kilna/liquibase-mariadb
 ENV LIQUIBASE_HOST=database.server
 ENV LIQUIBASE_DATABASE=dbname
 ENV LIQUIBASE_USERNAME=user
